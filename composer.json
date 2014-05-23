@@ -1,6 +1,9 @@
 {
     "name"             : "vi-kon/laravel-smarty-view",
-    "description"      : "",
+    "description"      : "Smarty template engine for Laravel 4",
+	"keywords"         : ["laravel", "view", "smarty"],
+	"license"          : "MIT",
+	"homepage"         : "https://github.com/vi-kon/laravel-smarty-view",
     "authors"          : [
         {
             "name" : "Kovács Vince",

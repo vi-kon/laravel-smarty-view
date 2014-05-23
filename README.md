@@ -178,3 +178,7 @@ Only either of `label` or `token` is required.
 ```smarty
 {datatable_column token="language/file.and.token" width="120px" sortable=false}
 ```
+
+## License
+
+This package is licensed under the MIT License
