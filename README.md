@@ -54,6 +54,35 @@ On extending or loading another smarty template need path prefix with `view:path
 ...
 ```
 
+## Config file
+
+Plugin has custom config file:
+
+```php
+return array(
+    // Enable or disable caching
+    'caching'         => false,
+    // Enable or disable debugging
+    'debugging'       => false,
+    // Set cache lifetime
+    'cache_lifetime'  => 3600,
+    // Check complie
+    'compile_check'   => true,
+    // Set error reporting level in Smarty templates
+    'error_reporting' => null,
+
+    // Template directory
+    'template_dir'    => app_path() . '/views',
+    // Cache directory
+    'cache_dir'       => app_path() . '/storage/views/cache',
+    // Compile directory
+    'compile_dir'     => app_path() . '/storage/views/compile',
+
+    // Plugins directory
+    'plugins_path'    => array(),
+);
+```
+
 ## Custom plugins
 
 * config
@@ -79,19 +108,20 @@ On extending or loading another smarty template need path prefix with `view:path
 
 ### Config
 
-Config tag is alias to:
+Config tag is alias for:
+
 ```php
-return Config::get(key, default);
+return Config::get($key, $default);
 ```
 
 Return value is `mixed`.
 
 #### Attributes
 
-| Type   | Name      | Description                            | Required |
-| ------ | --------- | -------------------------------------- |:--------:|
-| string | `key`     | Config variable key                    | x        |
-| mixed  | `default` | Default value if config key not exists | -        |
+| Type   | Name      | Description                            | Required | Default |
+| ------ | --------- | -------------------------------------- |:--------:| ------- |
+| string | `key`     | Config variable key                    | x        | -       |
+| mixed  | `default` | Default value if config key not exists | -        | -       |
 
 ### Usage
 
@@ -106,21 +136,45 @@ Datatable block tag is for [chumper/datatable](https://github.com/Chumper/Datata
 
 #### Attributes
 
-| Type    | Name           | Description                            | Required |
-| ------- | -------------- | -------------------------------------- |:--------:|
-| string  | `url`          | Full URL for AJAX data                 | -        |
-| string  | `action`       | Route name for AJAX data               | -        |
-| boolean | `searching`    | Enable or disable searching            | -        |
-| boolean | `lengthChange` |                                        | -        |
-| string  | `class`        | Add custom class to datatable          | -        |
-| string  | `view`         | Custom view to render datatable        | -        |
+| Type    | Name           | Description                            | Required | Default   |
+| ------- | -------------- | -------------------------------------- |:--------:| --------- |
+| string  | `url`          | Full URL for AJAX data                 | -        | -         |
+| string  | `action`       | Route name for AJAX data               | -        | -         |
+| boolean | `searching`    | Enable or disable searching            | -        | true      |
+| boolean | `lengthChange` |                                        | -        | -         |
+| string  | `class`        | Add custom class to datatable          | -        | -         |
+| string  | `view`         | Custom view to render datatable        | -        | datatable |
 
 ### Usage
 
 ```smarty
-{datatable action="action URL" class="table-own" searching=false lengthChange=false}
+{datatable action="route name" class="table-own" searching=false lengthChange=false}
 
 ...
 
 {/datatable}
+```
+
+## Datatable column
+
+Add column to Datatable. Have to declared in `{datatable}` block, otherwise it won't work.
+
+#### Attributes
+
+| Type    | Name        | Description                               | Required | Default |
+| ------- | ----------- | ----------------------------------------- |:--------:| ------- |
+| string  | `label`     | Column label                              | x        | -       |
+| string  | `token`     | Column label token for translator         | x        | -       |
+| boolean | `sortable`  | Enable or disable column sorting          | -        | true    |
+| boolean | `orderable` | Enable or disable column sorting (alias)  | -        | true    |
+| string  | `width`     | Column width                              | -        | auto    |
+| string  | `class`     | Column class (individual `td` classes)    | -        | -       |
+| string  | `type`      | Column type (html, string, numeric, date) | -        | html    |
+
+Only either of `label` or `token` is required.
+
+### Usage
+
+```smarty
+{datatable_column token="language/file.and.token" width="120px" sortable=false}
 ```
