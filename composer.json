@@ -1,0 +1,24 @@
+{
+    "name"             : "vi-kon/laravel-smarty",
+    "description"      : "",
+    "authors"          : [
+        {
+            "name" : "Kovács Vince",
+            "email": "vincekovacs@hotmail.com"
+        }
+    ],
+    "require"          : {
+        "php"               : ">=5.3.0",
+        "illuminate/support": "4.1.*",
+        "smarty/smarty"     : "3.1.*"
+    },
+    "autoload"         : {
+        "classmap": [
+            "src/migrations"
+        ],
+        "psr-0"   : {
+            "ViKon\\SmartyView\\": "src/"
+        }
+    },
+    "minimum-stability": "stable"
+}
