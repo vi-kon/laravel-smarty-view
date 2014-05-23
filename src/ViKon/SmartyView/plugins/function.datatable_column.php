@@ -5,6 +5,8 @@
  * @param Smarty_Internal_Template $smarty
  *
  * @throws SmartyException
+ *
+ * @author Kovács Vince
  */
 function smarty_function_datatable_column($params, &$smarty)
 {

@@ -6,6 +6,13 @@ namespace ViKon\SmartyView;
 use Illuminate\Config\Repository;
 use Illuminate\View\Engines\EngineInterface;
 
+/**
+ * Class SmartyView
+ *
+ * @package ViKon\SmartyView
+ *
+ * @author  Kovács Vince
+ */
 class SmartyView implements EngineInterface
 {
     /**

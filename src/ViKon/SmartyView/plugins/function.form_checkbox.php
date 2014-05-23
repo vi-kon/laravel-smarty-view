@@ -1,4 +1,14 @@
 <?php
+
+/**
+ * @param array                    $params
+ * @param Smarty_Internal_Template $smarty
+ *
+ * @throws SmartyException
+ * @return string
+ *
+ * @author Kovács Vince
+ */
 function smarty_function_form_checkbox($params, &$smarty)
 {
     if (!isset($params['_name']))

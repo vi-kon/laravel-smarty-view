@@ -3,8 +3,10 @@
  * @param array                    $params
  * @param Smarty_Internal_Template $smarty
  *
- * @return mixed
  * @throws SmartyException
+ * @return mixed
+ *
+ * @author Kovács Vince
  */
 function smarty_function_config($params, $smarty)
 {

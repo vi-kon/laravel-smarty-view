@@ -1,5 +1,17 @@
 <?php
 
+
+/**
+ * @param array                    $params
+ * @param string                   $content
+ * @param Smarty_Internal_Template $smarty
+ * @param boolean                  $repeat
+ *
+ * @throws SmartyException
+ * @return string
+ *
+ * @author Kovács Vince
+ */
 function smarty_block_form_label($params, $content, &$smarty, &$repeat)
 {
     if (is_null($content))

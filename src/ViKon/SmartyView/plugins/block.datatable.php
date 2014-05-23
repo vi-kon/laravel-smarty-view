@@ -6,7 +6,10 @@
  * @param Smarty_Internal_Template $smarty
  * @param boolean                  $repeat
  *
+ * @throws SmartyException
  * @return string
+ *
+ * @author Kovács Vince
  */
 function smarty_block_datatable($params, $content, &$smarty, &$repeat)
 {
