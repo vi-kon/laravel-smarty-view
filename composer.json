@@ -15,6 +15,9 @@
         "illuminate/support": "4.1.*",
         "smarty/smarty"     : "3.1.*"
     },
+	"suggest": {
+        "chumper/datatable": "Laravel 4 package for the server and client side of datatables at http://datatables.net/"
+    },
     "autoload"         : {
         "psr-0"   : {
             "ViKon\\SmartyView\\": "src/"
