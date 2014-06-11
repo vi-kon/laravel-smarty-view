@@ -48,7 +48,7 @@ function smarty_block_datatable($params, $content, &$smarty, &$repeat)
         }
         if (isset($params['class']))
         {
-            $table->setCustomValues($params);
+            $table->setClass($params['class']);
         }
 
         $table->setOptions($options);
