@@ -85,6 +85,8 @@ return array(
 
 ## Custom plugins
 
+* auth_check
+* auth_user
 * config
 * datatable
 * datatable_column
@@ -105,6 +107,22 @@ return array(
 * url
 * url_current
 * url_full
+
+### Auth check
+
+Auth_check tag is alias for:
+
+```php
+return Auth::check();
+```
+
+### Auth user
+
+Auth_user tag is alias for:
+
+```php
+return Auth::getUser();
+```
 
 ### Config
 
