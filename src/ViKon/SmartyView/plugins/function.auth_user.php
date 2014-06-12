@@ -7,7 +7,7 @@
  *
  * @author Kovács Vince
  */
-function smarty_function_auth_check($params, $smarty)
+function smarty_function_auth_user($params, $smarty)
 {
     return \Auth::user();
 }
