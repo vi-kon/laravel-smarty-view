@@ -21,17 +21,11 @@ Smarty template engine for Laravel 4
 To your `composer.json` file add following lines:
 
 ```javascript
-// to your "repositories" array
-{
-    "type": "vcs",
-    "url" : "git@github.com:vi-kon/laravel-smary-view.git"
-}
-
 // to your "require" object
 "vi-kon/laravel-smarty-view": "1.*"
 ```
 
-In your Laravel 4 project add following lines to app.php:
+In your Laravel 4 project add following lines to `app.php`:
 
 ```php
 // to your providers array
@@ -126,9 +120,9 @@ return Auth::getUser();
 
 #### Attributes
 
-| Type   | Name      | Description                            | Required | Default |
-| ------ | --------- | -------------------------------------- |:--------:| ------- |
-| string | `assign`  | Assign user data to named variable     | -        | -       |
+| Type   | Name      | Description                                       | Required | Default |
+| ------ | --------- | ------------------------------------------------- |:--------:| ------- |
+| string | `assign`  | Assign user data to named variable instead return | -        | -       |
 
 
 ### Config
