@@ -124,6 +124,13 @@ Auth_user tag is alias for:
 return Auth::getUser();
 ```
 
+#### Attributes
+
+| Type   | Name      | Description                            | Required | Default |
+| ------ | --------- | -------------------------------------- |:--------:| ------- |
+| string | `assign`  | Assign user data to named variable     | -        | -       |
+
+
 ### Config
 
 Config tag is alias for:

@@ -9,5 +9,11 @@
  */
 function smarty_function_auth_user($params, $smarty)
 {
+    if (isset($params['assign']))
+    {
+        $smarty->assign($params['assign'], \Auth::user());
+        return '';
+    }
+
     return \Auth::user();
 }
