@@ -57,9 +57,9 @@ class SmartyView implements EngineInterface
             $smarty->registerResource('view', new ViewResource());
 
             $smarty->addPluginsDir(__DIR__ . '/plugins');
-            foreach ($this->config->get('smarty-view::plugins_path', array()) as $path)
+            foreach ((array) $this->config->get('smarty-view::plugins_path', array()) as $pluginPath)
             {
-                $smarty->addPluginsDir($path);
+                $smarty->addPluginsDir($pluginPath);
             }
 
             foreach ($data as $key => $value)
