@@ -17,9 +17,13 @@ function smarty_function_form_select($params, &$smarty)
     }
     $name = $params['_name'];
 
-    $list = isset($params['_list'])
-        ? $params['_list']
+    $list = isset($params['_default'])
+        ? array($params['_default'])
         : array();
+
+    $list = array_merge($list, isset($params['_list'])
+        ? $params['_list']
+        : array());
 
     $selected = isset($params['_selected'])
         ? $params['_selected']
@@ -40,12 +44,15 @@ function smarty_function_form_select($params, &$smarty)
         {
             throw new SmartyException('Missing _begin attribute for form_select tag');
         }
+
         if (!isset($params['_end']))
         {
             throw new SmartyException('Missing _end attribute for form_select tag');
         }
+
         $begin = $params['_begin'];
         $end   = $params['_end'];
+
         unset($params['_begin']);
         unset($params['_end']);
 
