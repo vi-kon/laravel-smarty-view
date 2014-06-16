@@ -15,13 +15,18 @@ function smarty_function_form_radio($params, &$smarty)
     {
         throw new SmartyException('Missing _name attribute for form_radio tag');
     }
-    $name    = $params['_name'];
-    $value   = isset($params['_value'])
+    $name = $params['_name'];
+
+    $value = isset($params['_value'])
         ? $params['_value']
         : null;
+
     $checked = isset($params['_checked'])
         ? (bool) $params['_checked']
-        : null;
+        : (isset($params['_populate']) && $params['_populate']
+            ? (bool) \Input::get($name)
+            : null);
+
     unset($params['_name']);
     unset($params['_value']);
     unset($params['_checked']);

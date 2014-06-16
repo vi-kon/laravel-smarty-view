@@ -21,29 +21,34 @@ function smarty_function_datatable_column($params, &$smarty)
     }
 
     $tables = $smarty->getVariable('datatables')->value;
-    /** @var \Chumper\Datatable\Table $table */
-    $table = end($tables);
+    $table  = end($tables);
+
     $table->addColumn(isset($params['label'])
                           ? $params['label']
                           : Lang::get($params['token']));
 
     $options = array();
+
     if (isset($params['sortable']))
     {
         $options['orderable'] = (bool) $params['sortable'];
     }
+
     if (isset($params['orderable']))
     {
         $options['orderable'] = (bool) $params['orderable'];
     }
+
     if (isset($params['width']))
     {
         $options['width'] = $params['width'];
     }
+
     if (isset($params['class']))
     {
         $options['className'] = $params['class'];
     }
+
     if (isset($params['type']) && in_array($params['type'], array('html', 'string', 'numeric', 'date')))
     {
         $options['cellType'] = $params['type'];
@@ -53,5 +58,6 @@ function smarty_function_datatable_column($params, &$smarty)
     $tableOptions['columns'][] = count($options) == 0
         ? null
         : $options;
+
     $table->setOptions($tableOptions);
 }

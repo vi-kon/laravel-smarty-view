@@ -15,14 +15,20 @@ function smarty_function_form_select($params, &$smarty)
     {
         throw new SmartyException('Missing _name attribute for form_select tag');
     }
-    $name     = $params['_name'];
-    $list     = isset($params['_list'])
+    $name = $params['_name'];
+
+    $list = isset($params['_list'])
         ? $params['_list']
         : array();
+
     $selected = isset($params['_selected'])
         ? $params['_selected']
-        : null;
-    $range    = isset($params['_range']) && $params['_range'];
+        : (isset($params['_populate']) && $params['_populate']
+            ? \Input::get($name)
+            : null);
+
+    $range = isset($params['_range']) && $params['_range'];
+
     unset($params['_name']);
     unset($params['_list']);
     unset($params['_selected']);

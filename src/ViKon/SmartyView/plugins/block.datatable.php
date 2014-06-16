@@ -21,13 +21,15 @@ function smarty_block_datatable($params, $content, &$smarty, &$repeat)
     if ($repeat)
     {
         $options = array(
-            'processing' => true,
-            'stateSave'  => true,
-            'autoWidth'  => false,
-            'columns'    => array(),
+            'processing'  => true,
+            'bProcessing' => true,
+            'stateSave'   => true,
+            'autoWidth'   => false,
+            'columns'     => array(),
         );
 
         $table = Datatable::table();
+
         if (isset($params['url']))
         {
             $table->setUrl($params['url']);
@@ -38,14 +40,17 @@ function smarty_block_datatable($params, $content, &$smarty, &$repeat)
             $table->setUrl(URL::action($params['action']));
             unset($params['action']);
         }
+
         if (isset($params['searching']))
         {
             $options['searching'] = $params['searching'];
         }
+
         if (isset($params['lengthChange']))
         {
             $options['lengthChange'] = $params['lengthChange'];
         }
+
         if (isset($params['class']))
         {
             $table->setClass($params['class']);

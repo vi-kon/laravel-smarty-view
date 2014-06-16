@@ -16,6 +16,7 @@ function smarty_function_html_style($params, &$smarty)
         throw new SmartyException('Missing _url attribute for html_style tag');
     }
     $url = $params['_url'];
+
     unset($params['_url']);
 
     return HTML::style($url, $params);

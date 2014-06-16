@@ -23,8 +23,10 @@ function smarty_block_form_label($params, $content, &$smarty, &$repeat)
     {
         throw new SmartyException('Missing _name attribute for form_label tag');
     }
-    $name    = $params['_name'];
+    $name = $params['_name'];
+
     $content = trim($content);
+
     unset($params['_name']);
 
     return Form::label($name, Lang::get($content), $params);

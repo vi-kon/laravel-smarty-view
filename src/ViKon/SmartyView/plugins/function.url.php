@@ -16,6 +16,7 @@ function smarty_function_url($params, &$smarty)
         throw new SmartyException('Missing _name attribute for url tag');
     }
     $name = $params['_name'];
+
     unset($params['_name']);
 
     return URL::route($name, $params);

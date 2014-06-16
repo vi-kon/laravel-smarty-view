@@ -15,10 +15,14 @@ function smarty_function_form_textarea($params, &$smarty)
     {
         throw new SmartyException('Missing _name attribute for form_text tag');
     }
-    $name  = $params['_name'];
+    $name = $params['_name'];
+
     $value = isset($params['_value'])
         ? $params['_value']
-        : null;
+        : (isset($params['_populate'])
+            ? \Input::get($name)
+            : null);
+
     unset($params['_name']);
     unset($params['_value']);
 
