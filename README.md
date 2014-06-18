@@ -8,7 +8,7 @@ Smarty template engine for Laravel 4
 
 ## TODO
 
-* Fix incomming bugs
+* Fix incoming bugs
 * Finish documentation
 
 ## Features
@@ -50,7 +50,9 @@ On extending or loading another smarty template need path prefix with `view:path
 
 ## Config file
 
-Plugin has custom config file:
+On custom config easily publish it with `php artisan config:publish vi-kon/laravel-smarty` command. The command will create new file `app/config/packages/vi-kon/laravel-smarty/config.php`. 
+
+`config.php` content:
 
 ```php
 return array(
@@ -60,7 +62,7 @@ return array(
     'debugging'       => false,
     // Set cache lifetime
     'cache_lifetime'  => 3600,
-    // Check complie
+    // Check compile
     'compile_check'   => true,
     // Set error reporting level in Smarty templates
     'error_reporting' => null,
@@ -114,7 +116,7 @@ Return value is type of `boolean`.
 
 ### Auth user
 
-The **auth_user** tag is alis for (if no `assign` attribute provided):
+The **auth_user** tag is alias for (if no `assign` attribute provided):
 
 ```php
 return Auth::getUser();
@@ -231,16 +233,16 @@ All parameters passed to `Form::open` method as HTML attributes.
 HTML output:
 
 ```html
-<form action="generater route from name" method="POST" accept-charset="UTF-8" class="form-horizontal" role="form">
+<form action="generated route from name" method="POST" accept-charset="UTF-8" class="form-horizontal" role="form">
     ...
 </form>
 ```
 
-### Form checkbox
+### Form chechkbox
 
 The `form_checkbox` is alias for `Form::checkbox`.
 
-Return valus is type of `string`, with generated HTML checkbox input field.
+Return value is type of `string`, with generated HTML checkbox input field.
 
 #### Attributes
 
@@ -248,8 +250,8 @@ Return valus is type of `string`, with generated HTML checkbox input field.
 | ------- | ----------- | ------------------------------------------------- |:--------:| ------- |
 | string  | `_name`     | HTML `name` attribute                             | x        | -       |
 | mixed   | `_value`    | checkbox `value` attribute                        | -        | `null`  |
-| bool    | `_checked`  | if `true` checkbox will be checked, otherwise not | -        | `false` |
-| bool    | `_populate` | if `true` old input data will be used             | -        | `false` |
+| boolean | `_checked`  | if `true` checkbox will be checked, otherwise not | -        | `false` |
+| boolean | `_populate` | if `true` old input data will be used             | -        | `false` |
 
 #### Usage
 
