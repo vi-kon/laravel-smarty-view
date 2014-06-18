@@ -104,19 +104,23 @@ return array(
 
 ### Auth check
 
-Auth_check tag is alias for:
+The **auth_check** tag is alias for:
 
 ```php
 return Auth::check();
 ```
 
+Return value is type of `boolean`.
+
 ### Auth user
 
-Auth_user tag is alias for:
+The **auth_user** tag is alis for (if no `assign` attribute provided):
 
 ```php
 return Auth::getUser();
 ```
+
+Return value is type of `UserInterface` or `null`.
 
 #### Attributes
 
@@ -127,13 +131,13 @@ return Auth::getUser();
 
 ### Config
 
-Config tag is alias for:
+The **config** tag is alias for:
 
 ```php
 return Config::get($key, $default);
 ```
 
-Return value is `mixed`.
+Return value is type of `mixed`.
 
 #### Attributes
 
@@ -142,29 +146,29 @@ Return value is `mixed`.
 | string | `key`     | Config variable key                    | x        | -       |
 | mixed  | `default` | Default value if config key not exists | -        | -       |
 
-### Usage
+#### Usage
 
 ```smarty
 {config key="app.locale"}
 ```
 
 
-## Datatable
+### Datatable
 
-Datatable block tag is for [chumper/datatable](https://github.com/Chumper/Datatable) Laravel 4 package to make datatables.
+The **datatable** block tag is for [chumper/datatable](https://github.com/Chumper/Datatable) Laravel 4 package to make datatables.
 
 #### Attributes
 
-| Type    | Name           | Description                            | Required | Default   |
-| ------- | -------------- | -------------------------------------- |:--------:| --------- |
-| string  | `url`          | Full URL for AJAX data                 | -        | -         |
-| string  | `action`       | Route name for AJAX data               | -        | -         |
-| boolean | `searching`    | Enable or disable searching            | -        | true      |
-| boolean | `lengthChange` |                                        | -        | -         |
-| string  | `class`        | Add custom class to datatable          | -        | -         |
-| string  | `view`         | Custom view to render datatable        | -        | datatable |
+| Type    | Name           | Description                            | Required | Default       |
+| ------- | -------------- | -------------------------------------- |:--------:| ------------- |
+| string  | `url`          | Full URL for AJAX data                 | -        | -             |
+| string  | `action`       | Route name for AJAX data               | -        | -             |
+| boolean | `searching`    | Enable or disable searching            | -        | `true`        |
+| boolean | `lengthChange` |                                        | -        | -             |
+| string  | `class`        | Add custom class to datatable          | -        | -             |
+| string  | `view`         | Custom view to render datatable        | -        | `"datatable"` |
 
-### Usage
+#### Usage
 
 ```smarty
 {datatable action="route name" class="table-own" searching=false lengthChange=false}
@@ -174,28 +178,83 @@ Datatable block tag is for [chumper/datatable](https://github.com/Chumper/Datata
 {/datatable}
 ```
 
-## Datatable column
+### Datatable column
 
 Add column to Datatable. Have to declared in `{datatable}` block, otherwise it won't work.
 
 #### Attributes
 
-| Type    | Name        | Description                               | Required | Default |
-| ------- | ----------- | ----------------------------------------- |:--------:| ------- |
-| string  | `label`     | Column label                              | x        | -       |
-| string  | `token`     | Column label token for translator         | x        | -       |
-| boolean | `sortable`  | Enable or disable column sorting          | -        | true    |
-| boolean | `orderable` | Enable or disable column sorting (alias)  | -        | true    |
-| string  | `width`     | Column width                              | -        | auto    |
-| string  | `class`     | Column class (individual `td` classes)    | -        | -       |
-| string  | `type`      | Column type (html, string, numeric, date) | -        | html    |
+| Type    | Name        | Description                               | Required | Default  |
+| ------- | ----------- | ----------------------------------------- |:--------:| -------- |
+| string  | `label`     | Column label                              | x        | -        |
+| string  | `token`     | Column label token for translator         | x        | -        |
+| boolean | `sortable`  | Enable or disable column sorting          | -        | `true`   |
+| boolean | `orderable` | Enable or disable column sorting (alias)  | -        | `true`   |
+| string  | `width`     | Column width                              | -        | `"auto"` |
+| string  | `class`     | Column class (individual `td` classes)    | -        | -        |
+| string  | `type`      | Column type (html, string, numeric, date) | -        | `"html"` |
 
 Only either of `label` or `token` is required.
 
-### Usage
+#### Usage
 
 ```smarty
 {datatable_column token="language/file.and.token" width="120px" sortable=false}
+```
+
+### Form
+
+The **form** block tag opens and closes form:
+
+```php
+return Form::open($params)
+       . $content
+       . Form::close()
+```
+
+Return value is type of `string`, with generated HTML form.
+
+#### Attributes
+
+All parameters passed to `Form::open` method as HTML attributes.
+
+#### Usage
+
+```smarty
+{form action="route name" class="form-horizontal" role="form"}
+
+...
+
+{/form}
+```
+
+HTML output:
+
+```html
+<form action="generater route from name" method="POST" accept-charset="UTF-8" class="form-horizontal" role="form">
+    ...
+</form>
+```
+
+### Form checkbox
+
+The `form_checkbox` is alias for `Form::checkbox`.
+
+Return valus is type of `string`, with generated HTML checkbox input field.
+
+#### Attributes
+
+| Type    | Name        | Description                                       | Required | Default |
+| ------- | ----------- | ------------------------------------------------- |:--------:| ------- |
+| string  | `_name`     | HTML `name` attribute                             | x        | -       |
+| mixed   | `_value`    | checkbox `value` attribute                        | -        | `null`  |
+| bool    | `_checked`  | if `true` checkbox will be checked, otherwise not | -        | `false` |
+| bool    | `_populate` | if `true` old input data will be used             | -        | `false` |
+
+#### Usage
+
+```smarty
+{form_checkbox _name="field-checkbox" _checked=true class="checkbox"}
 ```
 
 ## License
