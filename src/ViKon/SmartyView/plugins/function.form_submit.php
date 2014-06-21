@@ -8,7 +8,7 @@
  *
  * @author Kovács Vince
  */
-function smarty_function_form_submit($params, &$smarty)
+function smarty_function_form_submit($params, Smarty_Internal_Template &$smarty)
 {
     $value = isset($params['_value'])
         ? $params['_value']

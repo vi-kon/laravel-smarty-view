@@ -8,7 +8,7 @@
  *
  * @author Kovács Vince
  */
-function smarty_function_url_current($params, &$smarty)
+function smarty_function_url_current($params, Smarty_Internal_Template &$smarty)
 {
     return \URL::current();
 }

@@ -11,7 +11,7 @@
  *
  * @author Kovács Vince
  */
-function smarty_block_datatable($params, $content, &$smarty, &$repeat)
+function smarty_block_datatable($params, $content, Smarty_Internal_Template &$smarty, &$repeat)
 {
     if (!class_exists('Datatable'))
     {

@@ -8,7 +8,7 @@
  *
  * @author Kovács Vince
  */
-function smarty_function_datatable_column($params, &$smarty)
+function smarty_function_datatable_column($params, Smarty_Internal_Template &$smarty)
 {
     if (!class_exists('Datatable'))
     {

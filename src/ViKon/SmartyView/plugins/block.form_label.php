@@ -12,7 +12,7 @@
  *
  * @author Kovács Vince
  */
-function smarty_block_form_label($params, $content, &$smarty, &$repeat)
+function smarty_block_form_label($params, $content, Smarty_Internal_Template &$smarty, &$repeat)
 {
     if (is_null($content))
     {

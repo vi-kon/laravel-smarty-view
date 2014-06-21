@@ -8,7 +8,7 @@
  *
  * @author Kovács Vince
  */
-function smarty_function_form_reset($params, &$smarty)
+function smarty_function_form_reset($params, Smarty_Internal_Template &$smarty)
 {
     $value = isset($params['_value'])
         ? $params['_value']
