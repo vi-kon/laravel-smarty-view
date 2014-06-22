@@ -7,11 +7,12 @@
  *
  * @author Kovács Vince
  */
-function smarty_function_auth_user($params, $smarty)
+function smarty_function_auth_user($params, Smarty_Internal_Template $smarty)
 {
     if (isset($params['assign']))
     {
         $smarty->assign($params['assign'], \Auth::user());
+
         return null;
     }
 

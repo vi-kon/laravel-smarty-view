@@ -9,7 +9,7 @@
  *
  * @author Kovács Vince
  */
-function smarty_function_html_script($params, &$smarty)
+function smarty_function_html_script($params, Smarty_Internal_Template &$smarty)
 {
     if (!isset($params['_url']))
     {
