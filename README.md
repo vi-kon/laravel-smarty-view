@@ -50,7 +50,7 @@ On extending or loading another smarty template need path prefix with `view:path
 
 ## Config file
 
-On custom config easily publish it with `php artisan config:publish vi-kon/laravel-smarty` command. The command will create new file `app/config/packages/vi-kon/laravel-smarty/config.php`. 
+On custom config easily publish it with `php artisan config:publish vi-kon/laravel-smarty-view` command. The command will create new file `app/config/packages/vi-kon/laravel-smarty-view/config.php`. The file need to move to `app/config/packages/vi-kon/smarty-view/config.php` location.
 
 `config.php` content:
 
