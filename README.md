@@ -2,19 +2,60 @@
 
 Smarty template engine for Laravel 4
 
+## Table of content
+
+* [Known issues](#known-issues)
+* [TODO](#todo)
+* [Features](#features)
+* [Installation](#installation)
+* [Usage](#usage)
+* [Config files](#config-files)
+* [Custom plugins](#custom-plugins)
+    * [auth_check](#auth-check)
+    * [auth_user](#auth-user)
+    * [config](#config)
+    * [datatable](#datatable)
+    * [datatable_column](#datatable-column)
+    * [form](#form)
+    * [form_checkbox](#form-checkbox)
+    * [form_file](#form-file)
+    * [form_hidden](#form-hidden)
+    * [form_label](#form-label)
+    * [form_password](#form-password)
+    * [form_radio](#form-radio)
+    * [form_select](#form-select)
+    * [form_submit](#form-submit)
+    * [form_text](#form-text)
+    * [form_textarea](#form-textarea)
+    * [html_script](#html-script)
+    * [lang](#lang)
+    * [url](#url)
+    * [url_current](#url-current)
+    * [url_full](#url-full)
+* [License](#license)
+
 ## Known issues
 
 * none
+
+---
+[Back to top](#laravel-4-smarty-view)
 
 ## TODO
 
 * Fix incoming bugs
 * Finish documentation
 
+---
+[Back to top](#laravel-4-smarty-view)
+
 ## Features
 
 * using smarty templates
 * using multiple template engines
+
+---
+[Back to top](#laravel-4-smarty-view)
 
 ## Installation
 
@@ -32,6 +73,9 @@ In your Laravel 4 project add following lines to `app.php`:
 'ViKon\Auth\AuthServiceProvider',
 ```
 
+---
+[Back to top](#laravel-4-smarty-view)
+
 ## Usage
 
 Simply create new template file with `.tpl` extension and load with `View` class.
@@ -47,6 +91,9 @@ On extending or loading another smarty template need path prefix with `view:path
 {extends file="view:layout-site"}
 ...
 ```
+
+---
+[Back to top](#laravel-4-smarty-view)
 
 ## Config file
 
@@ -79,30 +126,32 @@ return array(
 );
 ```
 
+---
+[Back to top](#laravel-4-smarty-view)
+
 ## Custom plugins
 
-* auth_check
-* auth_user
-* config
-* datatable
-* datatable_column
-* form
-* form_checkbox
-* form_file
-* form_hidden
-* form_label
-* form_password
-* form_radio
-* form_select
-* form_submit
-* form_text
-* form_textarea
-* html_script
-* html_style
-* lang
-* url
-* url_current
-* url_full
+* [auth_check](#auth-check)
+* [auth_user](#auth-user)
+* [config](#config)
+* [datatable](#datatable)
+* [datatable_column](#datatable-column)
+* [form](#form)
+* [form_checkbox](#form-checkbox)
+* [form_file](#form-file)
+* [form_hidden](#form-hidden)
+* [form_label](#form-label)
+* [form_password](#form-password)
+* [form_radio](#form-radio)
+* [form_select](#form-select)
+* [form_submit](#form-submit)
+* [form_text](#form-text)
+* [form_textarea](#form-textarea)
+* [html_script](#html-script)
+* [lang](#lang)
+* [url](#url)
+* [url_current](#url-current)
+* [url_full](#url-full)
 
 ### Auth check
 
@@ -111,6 +160,9 @@ The **auth_check** tag is alias for:
 ```php
 return Auth::check();
 ```
+
+---
+[Back to top](#laravel-4-smarty-view)
 
 Return value is type of `boolean`.
 
@@ -130,6 +182,9 @@ Return value is type of `UserInterface` or `null`.
 | ------ | --------- | ------------------------------------------------- |:--------:| ------- |
 | string | `assign`  | Assign user data to named variable instead return | -        | -       |
 
+
+---
+[Back to top](#laravel-4-smarty-view)
 
 ### Config
 
@@ -153,6 +208,9 @@ Return value is type of `mixed`.
 ```smarty
 {config key="app.locale"}
 ```
+
+---
+[Back to top](#laravel-4-smarty-view)
 
 
 ### Datatable
@@ -180,6 +238,9 @@ The **datatable** block tag is for [chumper/datatable](https://github.com/Chumpe
 {/datatable}
 ```
 
+---
+[Back to top](#laravel-4-smarty-view)
+
 ### Datatable column
 
 Add column to Datatable. Have to declared in `{datatable}` block, otherwise it won't work.
@@ -203,6 +264,9 @@ Only either of `label` or `token` is required.
 ```smarty
 {datatable_column token="language/file.and.token" width="120px" sortable=false}
 ```
+
+---
+[Back to top](#laravel-4-smarty-view)
 
 ### Form
 
@@ -238,7 +302,10 @@ HTML output:
 </form>
 ```
 
-### Form chechkbox
+---
+[Back to top](#laravel-4-smarty-view)
+
+### Form checkbox
 
 The `form_checkbox` is alias for `Form::checkbox`.
 
@@ -259,6 +326,98 @@ Return value is type of `string`, with generated HTML checkbox input field.
 {form_checkbox _name="field-checkbox" _checked=true class="checkbox"}
 ```
 
+---
+[Back to top](#laravel-4-smarty-view)
+
+### Form file
+
+The `form_file` is alias for `Form::file`.
+
+Return value is type of `string`, with generated HTML file input field.
+
+#### Attributes
+
+| Type    | Name        | Description                                       | Required | Default |
+| ------- | ----------- | ------------------------------------------------- |:--------:| ------- |
+| string  | `_name`     | HTML `name` attribute                             | x        | -       |
+
+#### Usage
+
+```smarty
+{form_file _name="field-file"}
+```
+
+---
+[Back to top](#laravel-4-smarty-view)
+
+### Form hidden
+
+The `form_hidden` is alias for `Form::hidden`.
+
+Return value is type of `string`, with generated HTML hidden input field.
+
+#### Attributes
+
+| Type    | Name        | Description                                       | Required | Default |
+| ------- | ----------- | ------------------------------------------------- |:--------:| ------- |
+| string  | `_name`     | HTML `name` attribute                             | x        | -       |
+| mixed   | `_value`    | hidden field `value` attribute                    | -        | `null`  |
+| boolean | `_populate` | if `true` old input data will be used             | -        | `false` |
+
+#### Usage
+
+```smarty
+{form_hidden _name="field-hidden" value="hidden-value"}
+```
+
+### Form password
+
+The `form_password` is alias for `Form::password`.
+
+Return value is type of `string`, with generated HTML password input field.
+
+#### Attributes
+
+| Type    | Name        | Description                                       | Required | Default |
+| ------- | ----------- | ------------------------------------------------- |:--------:| ------- |
+| string  | `_name`     | HTML `name` attribute                             | x        | -       |
+
+#### Usage
+
+```smarty
+{form_password _name="field-password"}
+```
+
+---
+[Back to top](#laravel-4-smarty-view)
+
+### Form radio
+
+The `form_radio` is alias for `Form::radio`.
+
+Return value is type of `string`, with generated HTML radio input field.
+
+#### Attributes
+
+| Type    | Name        | Description                                       | Required | Default |
+| ------- | ----------- | ------------------------------------------------- |:--------:| ------- |
+| string  | `_name`     | HTML `name` attribute                             | x        | -       |
+| mixed   | `_value`    | radio `value` attribute                           | -        | `null`  |
+| boolean | `_checked`  | if `true` radio will be checked, otherwise not    | -        | `false` |
+| boolean | `_populate` | if `true` old input data will be used             | -        | `false` |
+
+#### Usage
+
+```smarty
+{form_radio _name="field-radio" _checked=true class="radio"}
+```
+
+---
+[Back to top](#laravel-4-smarty-view)
+
 ## License
 
 This package is licensed under the MIT License
+
+---
+[Back to top](#laravel-4-smarty-view)
