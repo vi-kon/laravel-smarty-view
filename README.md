@@ -126,6 +126,9 @@ return array(
 );
 ```
 
+---
+[Back to top](#laravel-4-smarty-view)
+
 ## Custom plugins
 
 * [auth_check](#auth-check)
