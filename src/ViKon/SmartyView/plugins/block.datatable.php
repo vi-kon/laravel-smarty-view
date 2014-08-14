@@ -30,6 +30,12 @@ function smarty_block_datatable($params, $content, Smarty_Internal_Template &$sm
 
         $table = Datatable::table();
 
+        if (isset($params['id']))
+        {
+            $table->setId($params['id']);
+            unset($params['id']);
+        }
+
         if (isset($params['url']))
         {
             $table->setUrl($params['url']);

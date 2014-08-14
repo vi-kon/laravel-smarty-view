@@ -25,6 +25,7 @@ function smarty_function_form_text($params, Smarty_Internal_Template &$smarty)
 
     unset($params['_name']);
     unset($params['_value']);
+    unset($params['_populate']);
 
     return Form::text($name, $value, $params);
 }

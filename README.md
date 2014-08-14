@@ -415,6 +415,83 @@ Return value is type of `string`, with generated HTML radio input field.
 ---
 [Back to top](#laravel-4-smarty-view)
 
+### Form select
+
+The `form_select` is alias for `Form::select` or `Form::selectRange`.
+
+Return value is type of `string`, with generated HTML select field.
+
+#### Attributes
+
+| Type     | Name        | Description                                       | Required         | Default   |
+| -------- | ----------- | ------------------------------------------------- |:----------------:| --------- |
+| string   | `_name`     | HTML `name` attribute                             | x                | -         |
+| string   | `_default`  | radio `value` attribute                           | -                | `null`    |
+| string[] | `_list`     | select items as associative array                 | -                | `array()` |
+| mixed    | `_selected` | selected index value                              | -                | `array()` |
+| boolean  | `_range`    | if `true` radio will be generated as select range | -                | `false`   |
+| string   | `_begin`    | range start value                                 | if range is true | `""`      |
+| string   | `_end`      | range end value                                   | if range is true | `""`      |
+| boolean  | `_populate` | if `true` old input data will be used             | -                | `false`   |
+
+#### Usage
+
+```smarty
+{form_select _name="field-checkbox" _list=$data}
+```
+```smarty
+{form_select _name="field-checkbox" _range=true _begin=5 _end=100 class="checkbox"}
+```
+
+---
+[Back to top](#laravel-4-smarty-view)
+
+### Form text
+
+The `form_text` is alias for `Form::text`.
+
+Return value is type of `string`, with generated HTML text field.
+
+#### Attributes
+
+| Type     | Name        | Description                                       | Required         | Default   |
+| -------- | ----------- | ------------------------------------------------- |:----------------:| --------- |
+| string   | `_name`     | HTML `name` attribute                             | x                | -         |
+| string   | `_value`    | text `value` attribute                            | -                | `null`    |
+| boolean  | `_populate` | if `true` old input data will be used             | -                | `false`   |
+
+#### Usage
+
+```smarty
+{form_text _name="field-text" class="text"}
+```
+
+---
+[Back to top](#laravel-4-smarty-view)
+
+### Form textarea
+
+The `form_text` is alias for `Form::textarea`.
+
+Return value is type of `string`, with generated HTML textarea field.
+
+#### Attributes
+
+| Type     | Name        | Description                                       | Required         | Default   |
+| -------- | ----------- | ------------------------------------------------- |:----------------:| --------- |
+| string   | `_name`     | HTML `name` attribute                             | x                | -         |
+| string   | `_value`    | textarea `value` attribute                        | -                | `null`    |
+| boolean  | `_populate` | if `true` old input data will be used             | -                | `false`   |
+
+#### Usage
+
+```smarty
+{form_textarea _name="field-textarea" class="textarea"}
+```
+
+---
+[Back to top](#laravel-4-smarty-view)
+
 ## License
 
 This package is licensed under the MIT License

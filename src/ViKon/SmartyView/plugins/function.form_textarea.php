@@ -25,6 +25,7 @@ function smarty_function_form_textarea($params, Smarty_Internal_Template &$smart
 
     unset($params['_name']);
     unset($params['_value']);
+    unset($params['_populate']);
 
     return Form::textarea($name, $value, $params);
 }
