@@ -446,6 +446,29 @@ Return value is type of `string`, with generated HTML select field.
 ---
 [Back to top](#laravel-4-smarty-view)
 
+### Form text
+
+The `form_text` is alias for `Form::text`.
+
+Return value is type of `string`, with generated HTML text field.
+
+#### Attributes
+
+| Type     | Name        | Description                                       | Required         | Default   |
+| -------- | ----------- | ------------------------------------------------- |:----------------:| --------- |
+| string   | `_name`     | HTML `name` attribute                             | x                | -         |
+| string   | `_value`    | text `value` attribute                            | -                | `null`    |
+| boolean  | `_populate` | if `true` old input data will be used             | -                | `false`   |
+
+#### Usage
+
+```smarty
+{form_text _name="field-text" class="text"}
+```
+
+---
+[Back to top](#laravel-4-smarty-view)
+
 ## License
 
 This package is licensed under the MIT License
