@@ -37,6 +37,7 @@ function smarty_function_form_select($params, Smarty_Internal_Template &$smarty)
     unset($params['_list']);
     unset($params['_selected']);
     unset($params['_range']);
+    unset($params['_populate']);
 
     if ($range)
     {
