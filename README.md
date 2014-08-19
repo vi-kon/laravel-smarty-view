@@ -500,7 +500,7 @@ Return value is type of `string`, with generated HTML text field.
 
 ### Form textarea
 
-The `form_text` is alias for `Form::textarea`.
+The `form_textarea` is alias for `Form::textarea`.
 
 Return value is type of `string`, with generated HTML textarea field.
 
