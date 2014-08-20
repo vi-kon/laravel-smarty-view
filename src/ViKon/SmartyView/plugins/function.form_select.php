@@ -17,13 +17,14 @@ function smarty_function_form_select($params, Smarty_Internal_Template &$smarty)
     }
     $name = $params['_name'];
 
-    $list = isset($params['_default'])
-        ? array($params['_default'])
+    $list = isset($params['_list'])
+        ? $params['_list']
         : array();
 
-    $list = array_merge($list, isset($params['_list'])
-        ? $params['_list']
-        : array());
+    if (isset($params['_default']))
+    {
+        $list = array('' => $params['_default']) + $list;
+    }
 
     $selected = isset($params['_selected'])
         ? $params['_selected']

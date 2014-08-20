@@ -21,6 +21,7 @@ function smarty_block_datatable($params, $content, Smarty_Internal_Template &$sm
     if ($repeat)
     {
         $options = array(
+            'language'    => \Lang::get('datatable', array()),
             'processing'  => true,
             'bProcessing' => true,
             'stateSave'   => true,

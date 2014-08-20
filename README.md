@@ -217,6 +217,8 @@ Return value is type of `mixed`.
 
 The **datatable** block tag is for [chumper/datatable](https://github.com/Chumper/Datatable) Laravel 4 package to make datatables.
 
+Plugin can load localization (language) data from `lang\{local}\datatable.php`. If language file not exists datatables default localization data will be used.
+
 #### Attributes
 
 | Type    | Name           | Description                            | Required | Default       |
@@ -236,6 +238,33 @@ The **datatable** block tag is for [chumper/datatable](https://github.com/Chumpe
 ...
 
 {/datatable}
+```
+
+Sample **datatable.php** language file:
+```php
+return array(
+    'sEmptyTable'     => 'No data available in table',
+    'sInfo'           => 'Showing _START_ to _END_ of _TOTAL_ entries',
+    'sInfoEmpty'      => 'Showing 0 to 0 of 0 entries',
+    'sInfoFiltered'   => '(filtered from _MAX_ total entries)',
+    'sInfoPostFix'    => '',
+    'sInfoThousands'  => ',',
+    'sLengthMenu'     => 'Show _MENU_ entries',
+    'sLoadingRecords' => 'Loading...',
+    'sProcessing'     => 'Processing...',
+    'sSearch'         => 'Search:',
+    'sZeroRecords'    => 'No matching records found',
+    'oPaginate'       => array(
+        'sFirst'    => 'First',
+        'sLast'     => 'Last',
+        'sNext'     => 'Next',
+        'sPrevious' => 'Previous',
+    ),
+    'oAria'           => array(
+        'sSortAscending'  => '=> activate to sort column ascending',
+        'sSortDescending' => '=> activate to sort column descending',
+    ),
+);
 ```
 
 ---
@@ -471,7 +500,7 @@ Return value is type of `string`, with generated HTML text field.
 
 ### Form textarea
 
-The `form_text` is alias for `Form::textarea`.
+The `form_textarea` is alias for `Form::textarea`.
 
 Return value is type of `string`, with generated HTML textarea field.
 
