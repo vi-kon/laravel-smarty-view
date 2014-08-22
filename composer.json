@@ -1,25 +1,29 @@
 {
-    "name"             : "vi-kon/laravel-smarty-view",
-    "description"      : "Smarty template engine for Laravel 4",
-	"keywords"         : ["laravel", "view", "smarty"],
-	"license"          : "MIT",
-	"homepage"         : "https://github.com/vi-kon/laravel-smarty-view",
-    "authors"          : [
+    "name":              "vi-kon/laravel-smarty-view",
+    "description":       "Smarty template engine for Laravel 4",
+    "keywords":          [
+        "laravel",
+        "view",
+        "smarty"
+    ],
+    "license":           "MIT",
+    "homepage":          "https://github.com/vi-kon/laravel-smarty-view",
+    "authors":           [
         {
-            "name" : "Kovács Vince",
+            "name":  "Kovács Vince",
             "email": "vincekovacs@hotmail.com"
         }
     ],
-    "require"          : {
-        "php"               : ">=5.4.0",
+    "require":           {
+        "php":                ">=5.4.0",
         "illuminate/support": "4.2.*",
-        "smarty/smarty"     : "3.1.*"
+        "smarty/smarty":      "3.1.*"
     },
-	"suggest": {
+    "suggest":           {
         "chumper/datatable": "Laravel 4 package for the server and client side of datatables at http://datatables.net/"
     },
-    "autoload"         : {
-        "psr-0"   : {
+    "autoload":          {
+        "psr-0": {
             "ViKon\\SmartyView\\": "src/"
         }
     },
