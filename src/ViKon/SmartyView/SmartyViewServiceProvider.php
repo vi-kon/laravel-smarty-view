@@ -7,7 +7,7 @@ use Illuminate\Support\ServiceProvider;
  *
  * @package ViKon\SmartyView
  *
- * @author Kovács Vince
+ * @author  Kovács Vince
  */
 class SmartyViewServiceProvider extends ServiceProvider
 {
