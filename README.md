@@ -10,6 +10,8 @@ Smarty template engine for Laravel 4
 * [Installation](#installation)
 * [Usage](#usage)
 * [Config files](#config-files)
+* [Events](#events)
+    * [smarty-view.init](#smarty-view.init)
 * [Custom plugins](#custom-plugins)
     * [auth_check](#auth-check)
     * [auth_user](#auth-user)
@@ -129,7 +131,44 @@ return array(
 ---
 [Back to top](#laravel-4-smarty-view)
 
+## Events
+
+* [smarty-view.init](#smarty-view.init)
+
+---
+[Back to top](#laravel-4-smarty-view)
+
+### smarty-view.init
+
+Firring, when SmartyView is constructed, to add custom configuration options.
+
+#### Attributes
+
+| Type                           | Name      | Description                   |
+| ------------------------------ | --------- | ----------------------------- |
+| `Illuminate\Config\Repository` | `options` | Is alias for `\Config` object |
+
+#### Usage
+
+Example usage in package service provider:
+
+```php
+public function boot()
+    \Event::listen('smarty-view.init', function ($config)
+    {
+        $config->set('smarty-view::plugins_path', array_merge(
+            $config->get('smarty-view::plugins_path'),
+            array(__DIR__ . DIRECTORY_SEPARATOR . 'smarty' . DIRECTORY_SEPARATOR . 'plugins')));
+    });
+}
+```
+
+---
+[Back to top](#laravel-4-smarty-view)
+
 ## Custom plugins
+
+Avalaible custom plugins:
 
 * [auth_check](#auth-check)
 * [auth_user](#auth-user)

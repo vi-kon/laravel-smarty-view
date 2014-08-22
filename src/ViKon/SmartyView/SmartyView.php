@@ -26,6 +26,7 @@ class SmartyView implements EngineInterface
     public function __construct(Repository $config)
     {
         $this->config = $config;
+        \Event::fire('smarty-view.init', array($config));
     }
 
     /**
@@ -50,7 +51,7 @@ class SmartyView implements EngineInterface
             $smarty->cache_lifetime  = $this->config->get('smarty-view::cache_lifetime');
             $smarty->compile_check   = $this->config->get('smarty-view::compile_check');
             $smarty->error_reporting = $this->config->get('smarty-view::error_reporting');
-            
+
             if (\App::environment('local'))
             {
                 $smarty->force_compile = true;
