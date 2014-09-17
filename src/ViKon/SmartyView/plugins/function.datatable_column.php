@@ -31,7 +31,7 @@ function smarty_function_datatable_column($params, Smarty_Internal_Template &$sm
 
     if (isset($params['sortable']))
     {
-        $options['orderable'] = (bool) $params['sortable'];
+        $options['sortable'] = (bool) $params['sortable'];
     }
 
     if (isset($params['orderable']))
