@@ -72,7 +72,7 @@ In your Laravel 4 project add following lines to `app.php`:
 
 ```php
 // to your providers array
-'ViKon\Auth\AuthServiceProvider',
+'ViKon\SmartyView\SmartyViewServiceProvider',
 ```
 
 ---
